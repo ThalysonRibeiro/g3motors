@@ -4,13 +4,12 @@ import { PostProps } from "@/utils/post.type";
 import { Metadata } from "next";
 import { Content } from "./components/content";
 import { LoadingPost } from "./components/loading";
-import { NextPage } from "next"; // Import NextPage or any other relevant types
 
+// Define the interface for Params
 interface Params {
   slug: string;
 }
 
-// Adjust the function signature to match Next.js expectations
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = params;
   try {
@@ -45,8 +44,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   }
 }
 
-// Use NextPage type for the component
-const Page: NextPage<{ params: Params }> = async ({ params }) => {
+// Define the Page component
+const Page = async ({ params }: { params: Params }) => {
   const { slug } = params;
 
   return (
