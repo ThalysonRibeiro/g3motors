@@ -10,7 +10,7 @@ interface Params {
 }
 
 export async function generateMetadata({ params }: { params: { slug: string; } }): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = params as Params;
   try {
     const { objects }: PostProps = await getItemBySlug(slug)
       .catch(() => {
@@ -50,8 +50,6 @@ export async function generateMetadata({ params }: { params: { slug: string; } }
 
 export default async function Page({ params }: { params: { slug: string; } }) {
   const { slug } = params;
-
-  // const { objects }: PostProps = await getItemBySlug(slug);
 
   return (
     <>
