@@ -8,7 +8,7 @@ import { LoadingPost } from "./components/loading";
 
 export async function generateMetadata({ params }: {
   params: { slug: string; }
-}): Promise<Metadata | any> {
+}): Promise<Metadata> {
   const { slug } = params;
   try {
     const { objects }: PostProps = await getItemBySlug(slug)
